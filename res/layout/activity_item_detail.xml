@@ -4,5 +4,26 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ItemDetailActivity"
-    tools:ignore="MergeRootFrame" />
+    tools:ignore="MergeRootFrame" >
+  
+    <TextView
+        android:id="@+id/item_detail_container_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+         />
+    
+    <ImageView
+  		android:layout_marginTop="24sp"
+        android:id="@+id/item_detail_container_image"
+        android:contentDescription="@string/dummy"
+        android:src="@drawable/dummy"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="start"
+       
+        android:scaleType="fitStart"
+        />
 
+
+</FrameLayout>

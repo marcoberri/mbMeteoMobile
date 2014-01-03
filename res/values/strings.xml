@@ -1,7 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
     <string name="app_name">MBMeteo Santhià</string>
-    <string name="title_item_detail">Item Detail</string>
-
+    <string name="title_item_detail">Details</string>
+    <string name="dummy">dummy</string>
+    <string name="temperature">Temperature</string>
+    <string name="temperature_ext">Last Temperature</string>
+    <string name="humidity">Humidity</string>
+    <string name="humidity_ext">Last Humidity</string>
+    
+    <string name="dewpoint">Dewpoint</string>
+    <string name="dewpoint_ext">Last Devpoint</string>
+    
+    <string name="day_rainfall">Day rainfall</string>
+    <string name="day_rainfall_ext">Day Rain falls</string>
+    <string name="tot_rain">Tot rainfall</string>
+     <string name="tot_rain_ext">Totals rain falls</string>
 </resources>

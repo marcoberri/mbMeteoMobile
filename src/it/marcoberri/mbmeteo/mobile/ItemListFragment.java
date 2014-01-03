@@ -1,13 +1,17 @@
 package it.marcoberri.mbmeteo.mobile;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.app.ListFragment;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
-import it.marcoberri.mbmeteo.mobile.dummy.DummyContent;
+import it.marcoberri.mbmeteo.mobile.model.DetailsContent;
 
 /**
  * A list fragment representing a list of Items. This fragment also supports
@@ -70,10 +74,29 @@ public class ItemListFragment extends ListFragment {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
-		// TODO: replace with a real list adapter.
-		setListAdapter(new ArrayAdapter<DummyContent.DummyItem>(getActivity(),
-				android.R.layout.simple_list_item_activated_1,
-				android.R.id.text1, DummyContent.ITEMS));
+	/*	
+		final List<DetailsContent.DetailItem> di = DetailsContent.ITEMS;
+
+		final List<DetailsContent.DetailItem> di_parsed = new ArrayList<DetailsContent.DetailItem>();
+
+		for(DetailsContent.DetailItem d : di){
+			final String desc = getResources().getText(getResources().getIdentifier(d.getContentDescription(), "string","it.marcoberri.mbmeteo.mobile")).toString();
+	
+			Log.d("Meteo", "Contente description B:" + d.getContentDescription());
+			Log.d("Meteo", "Get Resource B:" + getResources().getIdentifier(d.getContentDescription(), "string","it.marcoberri.mbmeteo.mobile"));
+			Log.d("Meteo", "Get Resource B2:" + getResources().getText(getResources().getIdentifier(d.getContentDescription(), "string","it.marcoberri.mbmeteo.mobile")));
+	
+			d.setContentDescription(desc);
+			di_parsed.add(d);
+		}
+		
+		*/
+		ArrayAdapter<DetailsContent.DetailItem> adapter = new ArrayAdapter<DetailsContent.DetailItem>(getActivity(),
+				android.R.layout.simple_list_item_1,
+				android.R.id.text1, DetailsContent.ITEMS);
+		
+		
+		setListAdapter(adapter);
 	}
 
 	@Override
@@ -113,10 +136,7 @@ public class ItemListFragment extends ListFragment {
 	public void onListItemClick(ListView listView, View view, int position,
 			long id) {
 		super.onListItemClick(listView, view, position, id);
-
-		// Notify the active callbacks interface (the activity, if the
-		// fragment is attached to one) that an item has been selected.
-		mCallbacks.onItemSelected(DummyContent.ITEMS.get(position).id);
+		mCallbacks.onItemSelected(DetailsContent.ITEMS.get(position).getId());
 	}
 
 	@Override
@@ -133,8 +153,6 @@ public class ItemListFragment extends ListFragment {
 	 * given the 'activated' state when touched.
 	 */
 	public void setActivateOnItemClick(boolean activateOnItemClick) {
-		// When setting CHOICE_MODE_SINGLE, ListView will automatically
-		// give items the 'activated' state when touched.
 		getListView().setChoiceMode(
 				activateOnItemClick ? ListView.CHOICE_MODE_SINGLE
 						: ListView.CHOICE_MODE_NONE);

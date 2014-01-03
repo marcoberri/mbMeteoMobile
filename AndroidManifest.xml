@@ -22,6 +22,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        
         <activity
             android:name="it.marcoberri.mbmeteo.mobile.ItemDetailActivity"
             android:label="@string/title_item_detail"
@@ -30,6 +31,8 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".ItemListActivity" />
         </activity>
+        
+        
     </application>
 
 </manifest>

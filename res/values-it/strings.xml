@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">MBMeteo Santhià</string>
+    <string name="title_item_detail">Dattegli</string>
+    <string name="dummy">dummy</string>
+    <string name="temperature">Temperatura</string>
+    <string name="temperature_ext">Temperatura nel Periodo</string>
+    <string name="humidity">Umidità</string>
+    <string name="humidity_ext">Umidità nel periodo</string>
+    <string name="dewpoint">Punto di Rugiada</string>
+    <string name="dewpoint_ext">Punto di Rugiada nel periodo</string>
+    <string name="day_rainfall">Piogge Giornaliere</string>
+    <string name="day_rainfall_ext">Piogge Giornaliere nel periodo</string>
+    <string name="tot_rain">Tot Pioggia</string>
+    <string name="tot_rain_ext">Totale Pioggia</string>
+</resources>

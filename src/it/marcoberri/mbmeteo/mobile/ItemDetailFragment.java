@@ -1,13 +1,14 @@
 package it.marcoberri.mbmeteo.mobile;
 
+import it.marcoberri.mbmeteo.mobile.model.DetailsContent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
-
-import it.marcoberri.mbmeteo.mobile.dummy.DummyContent;
 
 /**
  * A fragment representing a single Item detail screen. This fragment is either
@@ -24,7 +25,7 @@ public class ItemDetailFragment extends Fragment {
 	/**
 	 * The dummy content this fragment is presenting.
 	 */
-	private DummyContent.DummyItem mItem;
+	private DetailsContent.DetailItem mItem;
 
 	/**
 	 * Mandatory empty constructor for the fragment manager to instantiate the
@@ -36,28 +37,38 @@ public class ItemDetailFragment extends Fragment {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-
+		
 		if (getArguments().containsKey(ARG_ITEM_ID)) {
-			// Load the dummy content specified by the fragment
-			// arguments. In a real-world scenario, use a Loader
-			// to load content from a content provider.
-			mItem = DummyContent.ITEM_MAP.get(getArguments().getString(
-					ARG_ITEM_ID));
+			mItem = DetailsContent.ITEM_MAP.get(getArguments().getString(ARG_ITEM_ID));
 		}
 	}
 
 	@Override
-	public View onCreateView(LayoutInflater inflater, ViewGroup container,
-			Bundle savedInstanceState) {
-		View rootView = inflater.inflate(R.layout.fragment_item_detail,
-				container, false);
+	public View onCreateView(LayoutInflater inflater, ViewGroup container,Bundle savedInstanceState) {
+		
+		final View rootView = inflater.inflate(R.layout.fragment_item_detail,container, false);
 
-		// Show the dummy content as text in a TextView.
-		if (mItem != null) {
-			((TextView) rootView.findViewById(R.id.item_detail))
-					.setText(mItem.content);
-		}
+		
+		if (mItem == null) {
+			return rootView;
+			}
+		
+			final ImageView imgView = ((ImageView) rootView.findViewById(R.id.item_detail_container_image));
+			imgView.setImageResource( getResources().getIdentifier(mItem.getImage(), "drawable","it.marcoberri.mbmeteo.mobile"));
+			Log.d("Meteo", "Contente description:" + mItem.getContentDescription());
+			Log.d("Meteo", "Get Resource:" + getResources().getIdentifier(mItem.getContentDescription(), "string","it.marcoberri.mbmeteo.mobile"));
+			Log.d("Meteo", "Get Resource 2:" + getResources().getText(getResources().getIdentifier(mItem.getContentDescription(), "string","it.marcoberri.mbmeteo.mobile")));
+				
+			final String ext = getResources().getText(getResources().getIdentifier(mItem.getContentDescription()+ "_ext", "string","it.marcoberri.mbmeteo.mobile")).toString();
+			
+			imgView.setContentDescription(ext);
 
-		return rootView;
+			final String desc = getResources().getText(getResources().getIdentifier(mItem.getContentDescription(), "string","it.marcoberri.mbmeteo.mobile")).toString();
+			this.getActivity().setTitle(desc);
+			
+			TextView textView = ((TextView) rootView.findViewById(R.id.item_detail_container_text));
+			textView.clearComposingText();		
+			textView.setText(ext);
+			return rootView;
 	}
 }
