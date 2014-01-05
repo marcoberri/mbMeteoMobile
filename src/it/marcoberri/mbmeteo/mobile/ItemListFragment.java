@@ -1,17 +1,12 @@
 package it.marcoberri.mbmeteo.mobile;
 
-import java.util.ArrayList;
-import java.util.List;
-
+import it.marcoberri.mbmeteo.mobile.model.DetailsContent;
 import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.app.ListFragment;
-import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-
-import it.marcoberri.mbmeteo.mobile.model.DetailsContent;
 
 /**
  * A list fragment representing a list of Items. This fragment also supports

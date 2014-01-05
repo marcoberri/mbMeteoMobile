@@ -51,7 +51,7 @@ public class ItemDetailFragment extends Fragment {
 		
 		if (mItem == null) {
 			return rootView;
-			}
+		}
 		
 			final ImageView imgView = ((ImageView) rootView.findViewById(R.id.item_detail_container_image));
 			imgView.setImageResource( getResources().getIdentifier(mItem.getImage(), "drawable","it.marcoberri.mbmeteo.mobile"));
@@ -66,9 +66,9 @@ public class ItemDetailFragment extends Fragment {
 			final String desc = getResources().getText(getResources().getIdentifier(mItem.getContentDescription(), "string","it.marcoberri.mbmeteo.mobile")).toString();
 			this.getActivity().setTitle(desc);
 			
-			TextView textView = ((TextView) rootView.findViewById(R.id.item_detail_container_text));
-			textView.clearComposingText();		
+			final TextView textView = ((TextView) rootView.findViewById(R.id.item_detail_container_text));
 			textView.setText(ext);
+		
 			return rootView;
 	}
 }
